@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 import { Car } from "@/types/car";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Gauge, Fuel, Settings } from "lucide-react";
+import { Gauge, Fuel, Settings, DollarSign } from "lucide-react";
 
 interface CarCardProps {
   car: Car;
@@ -51,9 +52,17 @@ export const CarCard = ({ car }: CarCardProps) => {
               ${car.price.toLocaleString()}
             </p>
           </div>
-          <Button variant="outline" className="group-hover:bg-primary group-hover:text-primary-foreground">
-            View Details
-          </Button>
+          <div className="flex gap-2">
+            <Link to={`/financial/${car.id}`}>
+              <Button variant="ghost" size="sm" className="group-hover:text-primary">
+                <DollarSign className="w-4 h-4 mr-1" />
+                Financing
+              </Button>
+            </Link>
+            <Button variant="outline" className="group-hover:bg-primary group-hover:text-primary-foreground">
+              View Details
+            </Button>
+          </div>
         </div>
       </div>
     </Card>
