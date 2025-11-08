@@ -38,9 +38,9 @@ export const CarFilters = ({
         <SelectContent>
           <SelectItem value="all">All Types</SelectItem>
           <SelectItem value="sedan">Sedan</SelectItem>
-          <SelectItem value="suv">SUV</SelectItem>
+          <SelectItem value="suv">SUV & Truck</SelectItem>
           <SelectItem value="sports">Sports</SelectItem>
-          <SelectItem value="electric">Electric</SelectItem>
+          <SelectItem value="electric">Hybrid & Electric</SelectItem>
         </SelectContent>
       </Select>
       
@@ -49,15 +49,17 @@ export const CarFilters = ({
           <SelectValue placeholder="All Brands" />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="all">All Brands</SelectItem>
-          <SelectItem value="bmw">BMW</SelectItem>
-          <SelectItem value="mercedes-benz">Mercedes-Benz</SelectItem>
-          <SelectItem value="porsche">Porsche</SelectItem>
-          <SelectItem value="tesla">Tesla</SelectItem>
-          <SelectItem value="audi">Audi</SelectItem>
-          <SelectItem value="maserati">Maserati</SelectItem>
-          <SelectItem value="lamborghini">Lamborghini</SelectItem>
-          <SelectItem value="range rover">Range Rover</SelectItem>
+          <SelectItem value="all">All Models</SelectItem>
+          <SelectItem value="camry">Camry</SelectItem>
+          <SelectItem value="corolla">Corolla</SelectItem>
+          <SelectItem value="rav4">RAV4</SelectItem>
+          <SelectItem value="highlander">Highlander</SelectItem>
+          <SelectItem value="4runner">4Runner</SelectItem>
+          <SelectItem value="tacoma">Tacoma</SelectItem>
+          <SelectItem value="tundra">Tundra</SelectItem>
+          <SelectItem value="prius">Prius</SelectItem>
+          <SelectItem value="bz4x">bZ4X</SelectItem>
+          <SelectItem value="gr supra">GR Supra</SelectItem>
         </SelectContent>
       </Select>
     </div>

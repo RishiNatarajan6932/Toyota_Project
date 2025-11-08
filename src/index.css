@@ -8,82 +8,82 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 7%;
-    --foreground: 0 0% 98%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 13%;
 
-    --card: 0 0% 10%;
-    --card-foreground: 0 0% 98%;
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 13%;
 
-    --popover: 0 0% 10%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 13%;
 
-    --primary: 0 84% 55%;
+    --primary: 0 95% 48%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 13%;
 
-    --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 0 0% 95%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 0 0% 85%;
-    --accent-foreground: 0 0% 10%;
+    --accent: 210 100% 50%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 55%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 95% 48%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 0 84% 55%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 95% 48%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    /* Premium automotive colors */
-    --chrome: 0 0% 75%;
-    --chrome-dark: 0 0% 45%;
-    --metal: 0 0% 25%;
+    /* Toyota brand colors */
+    --toyota-red: 0 95% 48%;
+    --toyota-gray: 0 0% 35%;
+    --toyota-light-gray: 0 0% 95%;
     
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(0 84% 55%), hsl(0 84% 35%));
-    --gradient-card: linear-gradient(180deg, hsl(0 0% 12%), hsl(0 0% 8%));
-    --gradient-overlay: linear-gradient(180deg, transparent, hsl(0 0% 7% / 0.9));
+    --gradient-hero: linear-gradient(135deg, hsl(0 95% 48%), hsl(0 85% 42%));
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(0 0% 98%));
+    --gradient-overlay: linear-gradient(180deg, transparent, hsl(0 0% 100% / 0.95));
     
     /* Shadows */
-    --shadow-glow: 0 0 40px hsl(0 84% 55% / 0.3);
-    --shadow-card: 0 10px 40px -10px hsl(0 0% 0% / 0.5);
+    --shadow-glow: 0 0 30px hsl(0 95% 48% / 0.2);
+    --shadow-card: 0 4px 20px -5px hsl(0 0% 0% / 0.1);
     
     /* Transitions */
-    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .dark {
-    --background: 0 0% 7%;
+    --background: 0 0% 13%;
     --foreground: 0 0% 98%;
 
-    --card: 0 0% 10%;
+    --card: 0 0% 16%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 10%;
+    --popover: 0 0% 13%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 0 84% 55%;
+    --primary: 0 95% 48%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 15%;
+    --secondary: 0 0% 20%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 0 0% 20%;
+    --muted: 0 0% 25%;
     --muted-foreground: 0 0% 65%;
 
-    --accent: 0 0% 85%;
-    --accent-foreground: 0 0% 10%;
+    --accent: 210 100% 50%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 55%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 95% 48%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 0 84% 55%;
+    --border: 0 0% 25%;
+    --input: 0 0% 25%;
+    --ring: 0 95% 48%;
   }
 }
 

@@ -25,8 +25,8 @@ export const CarCard = ({ car }: CarCardProps) => {
       
       <div className="p-6 space-y-4">
         <div>
-          <h3 className="text-xl font-bold text-foreground mb-1">{car.brand}</h3>
-          <p className="text-2xl font-semibold text-chrome">{car.model}</p>
+          <p className="text-sm font-semibold text-primary mb-1">{car.year} Toyota</p>
+          <h3 className="text-2xl font-bold text-foreground">{car.model}</h3>
         </div>
         
         <div className="flex flex-wrap gap-3 text-sm text-muted-foreground">

@@ -47,9 +47,9 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        chrome: "hsl(var(--chrome))",
-        "chrome-dark": "hsl(var(--chrome-dark))",
-        metal: "hsl(var(--metal))",
+        "toyota-red": "hsl(var(--toyota-red))",
+        "toyota-gray": "hsl(var(--toyota-gray))",
+        "toyota-light-gray": "hsl(var(--toyota-light-gray))",
       },
       borderRadius: {
         lg: "var(--radius)",
