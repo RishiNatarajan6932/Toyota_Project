@@ -100,9 +100,6 @@ export const CarCard = ({ car }: CarCardProps) => {
                 Financing
               </Button>
             </Link>
-            <Button variant="outline" className="group-hover:bg-primary group-hover:text-primary-foreground">
-              View Details
-            </Button>
           </div>
         </div>
       </Card>
