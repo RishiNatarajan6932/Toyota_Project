@@ -3,7 +3,7 @@ import { Car } from "@/types/car";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Gauge, Fuel, Settings, Sparkles } from "lucide-react";
+import { Gauge, Fuel, Settings, Sparkles, MessageSquare } from "lucide-react";
 
 interface CarCardProps {
   car: Car;
@@ -53,6 +53,12 @@ export const CarCard = ({ car }: CarCardProps) => {
             </p>
           </div>
           <div className="flex gap-2">
+            <Link to={`/reviews/${car.id}`}>
+              <Button variant="ghost" size="sm" className="group-hover:text-primary">
+                <MessageSquare className="w-4 h-4 mr-1" />
+                Reviews
+              </Button>
+            </Link>
             <Link to="/matching">
               <Button variant="ghost" size="sm" className="group-hover:text-primary">
                 <Sparkles className="w-4 h-4 mr-1" />

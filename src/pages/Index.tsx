@@ -5,7 +5,7 @@ import { CarCard } from "@/components/CarCard";
 import { CarFilters } from "@/components/CarFilters";
 import { cars } from "@/data/cars";
 import heroImage from "@/assets/hero-car.jpg";
-import { ChevronRight, Shield, Zap, Award, DollarSign } from "lucide-react";
+import { ChevronRight, Shield, Zap, Award, DollarSign, MessageSquare } from "lucide-react";
 
 const Index = () => {
   const [search, setSearch] = useState("");
@@ -42,6 +42,12 @@ const Index = () => {
               <Button variant="ghost" className="hidden md:inline-flex">Vehicles</Button>
               <Button variant="ghost" className="hidden md:inline-flex">Shopping Tools</Button>
               <Button variant="ghost" className="hidden md:inline-flex">Owners</Button>
+              <Link to="/reviews">
+                <Button variant="ghost" className="hidden md:inline-flex">
+                  <MessageSquare className="w-4 h-4 mr-2" />
+                  Reviews
+                </Button>
+              </Link>
               <Link to="/matching">
                 <Button variant="ghost" className="hidden md:inline-flex">
                   <DollarSign className="w-4 h-4 mr-2" />
