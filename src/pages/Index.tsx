@@ -48,6 +48,12 @@ const Index = () => {
                   Financing
                 </Button>
               </Link>
+              <Link to="/financial">
+                <Button variant="ghost" className="hidden md:inline-flex">
+                  <DollarSign className="w-4 h-4 mr-2" />
+                  Financing
+                </Button>
+              </Link>
               <Button variant="default">Find a Dealer</Button>
             </div>
           </div>
