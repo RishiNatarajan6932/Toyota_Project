@@ -11,6 +11,9 @@ Our platform is an intelligent car-shopping companion designed specifically for 
 **AI-Powered Lifestyle Recommender**  
 Asks users human-centric questions—family size, road trip frequency, future plans, commute length—and recommends Toyota vehicles that fit their life, not just their specs.
 
+**Speech-to-Text Capability**
+For ease of use by customers, our speech-to-text option allows for long texts to be spoken to our chatbot to allow for fast and quick information about vehicle options and interests.
+
 **Driving Personality Quiz**  
 Matches users with cars based on how they drive: aggressive, cautious, tech-averse, gadget-lover, noise-sensitive, comfort-focused, DIY maintenance vs. low-maintenance preferences, etc.
 
@@ -46,9 +49,8 @@ If a user is close to a higher-value model, a smart pop-up explains: *"For only 
 - **Frontend:** React + Tailwind for a fast, clean, mobile-friendly UI
 - **Backend:** Node/Express API to handle questionnaire results, comparisons, and vehicle data
 - **AI/ML:** Custom recommendation logic combining lifestyle variables + personality scoring, weighted rankings using a hybrid scoring model
+- **Chatbot**: ElevenLabs
 - **Data Sources:** Historical maintenance datasets, Toyota specifications, user-generated community reviews
-- **State Management:** Context API or Redux
-- **Deployment:** Vercel / Netlify for frontend, Render / AWS / Firebase for backend
 
 ## Challenges we ran into
 
@@ -67,7 +69,7 @@ If a user is close to a higher-value model, a smart pop-up explains: *"For only 
 
 ## What we learned
 
-- Car buying is emotional, not just numerical
+- Car buying is personal process, not just another aspect or consideration thats apart of your life on a day-to-day basis
 - AI recommendations work best when they're transparent and relatable
 - UX matters—small touches like sliders and personal questions dramatically improve engagement
 - The future of automotive shopping is personalization, not static filters
