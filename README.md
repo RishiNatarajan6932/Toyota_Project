@@ -1,73 +1,82 @@
-# Welcome to your Lovable project
+## Inspiration
 
-## Project info
+Shopping for a car is overwhelming—even more so when choosing between trim levels, financing options, long-term costs, and lifestyle needs. Toyota has one of the most diverse and reliable vehicle lineups in the world, yet most customers still struggle to find the right car for their real life. Traditional filters (MPG, price, body type) don't capture someone planning for a baby, someone who hates loud cabins, or someone who takes long road trips every month.
 
-**URL**: https://lovable.dev/projects/c6af685f-72bd-4633-9899-f83800662de4
+We wanted to build a solution that feels like a personalized Toyota concierge—one that understands a person's lifestyle, personality, habits, and long-term needs, and then matches them to their dream car.
 
-## How can I edit this code?
+## What it does
 
-There are several ways of editing your application.
+Our platform is an intelligent car-shopping companion designed specifically for Toyota customers. It makes discovering the right Toyota vehicle simple, personalized, and insightful through:
 
-**Use Lovable**
+**AI-Powered Lifestyle Recommender**  
+Asks users human-centric questions—family size, road trip frequency, future plans, commute length—and recommends Toyota vehicles that fit their life, not just their specs.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/c6af685f-72bd-4633-9899-f83800662de4) and start prompting.
+**Driving Personality Quiz**  
+Matches users with cars based on how they drive: aggressive, cautious, tech-averse, gadget-lover, noise-sensitive, comfort-focused, DIY maintenance vs. low-maintenance preferences, etc.
 
-Changes made via Lovable will be committed automatically to this repo.
+**Behavioral & Sensory Preference Matching**  
+Filters vehicles based on niche needs like cabin quietness, seat comfort, engine feel, interior tech adoption, and ease of maintenance.
 
-**Use your preferred IDE**
+**Weighted Comparison Engine**  
+Users assign importance sliders (e.g., Safety 10/10, Speed 2/10, Cargo 8/10), and the platform automatically ranks Toyota vehicles based on their unique priorities.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+**True Cost Calculator**  
+Goes beyond the sticker price. It estimates:
+- Financing vs. leasing vs. buying used
+- Expected maintenance over ownership (using historical cost trends)
+- Insurance & fuel impact based on lifestyle
+- Long-term cost of ownership
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+**Explore All Financing Options**  
+Side-by-side comparisons of lease, finance, and used-car alternatives—helping customers make financially informed decisions.
 
-Follow these steps:
+**Community Reviews & Social Comparison**  
+Users can compare vehicles with friends, browse community insights, and see what similar lifestyles chose.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+**"Upgrade Nudge" Feature**  
+If a user is close to a higher-value model, a smart pop-up explains: *"For only $X more, you can step up to the [Model], offering better fuel efficiency and more features."* A subtle, ethical upsell opportunity for Toyota.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+**Classic Tools, Reimagined**  
+- Filter by car type
+- Compare trims
+- View specs in a simplified, user-friendly design
 
-# Step 3: Install the necessary dependencies.
-npm i
+## How we built it
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+- **Frontend:** React + Tailwind for a fast, clean, mobile-friendly UI
+- **Backend:** Node/Express API to handle questionnaire results, comparisons, and vehicle data
+- **AI/ML:** Custom recommendation logic combining lifestyle variables + personality scoring, weighted rankings using a hybrid scoring model
+- **Data Sources:** Historical maintenance datasets, Toyota specifications, user-generated community reviews
+- **State Management:** Context API or Redux
+- **Deployment:** Vercel / Netlify for frontend, Render / AWS / Firebase for backend
 
-**Edit a file directly in GitHub**
+## Challenges we ran into
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- Translating subjective lifestyle inputs into objective recommendation scores
+- Balancing AI personalization with transparency so users understand why a car matches them
+- Creating accurate cost-of-ownership predictions without overwhelming users
+- Designing the quiz to feel engaging and human
+- Implementing ethical upsell logic that provides value without pressure
 
-**Use GitHub Codespaces**
+## Accomplishments that we're proud of
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- Built one of the most personalized Toyota shopping experiences available
+- Designed a recommendation engine that understands humans, not just horsepower
+- Integrated financial modeling, lifestyle analysis, and sensory preferences into one cohesive system
+- Created a user flow that feels like talking to a Toyota expert, not filling out a form
 
-## What technologies are used for this project?
+## What we learned
 
-This project is built with:
+- Car buying is emotional, not just numerical
+- AI recommendations work best when they're transparent and relatable
+- UX matters—small touches like sliders and personal questions dramatically improve engagement
+- The future of automotive shopping is personalization, not static filters
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## What's next for Toyota
 
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/c6af685f-72bd-4633-9899-f83800662de4) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- AR/VR immersive test drives
+- Live chat with Toyota specialists keyed to quiz results
+- Real-time dealership inventory integration
+- Trade-in value estimator using VIN + AI
+- Predictive maintenance insights tailored to recommended vehicles
+- Global multilingual rollout
