@@ -5,11 +5,7 @@ import { CarCard } from "@/components/CarCard";
 import { CarFilters } from "@/components/CarFilters";
 import { cars } from "@/data/cars";
 import heroImage from "@/assets/hero-car.jpg";
-<<<<<<< HEAD
-import { ChevronRight, Shield, Zap, Award, DollarSign, MessageSquare, Sparkles } from "lucide-react";
-=======
-import { ChevronRight, Shield, Zap, Award, MessageCircle, X, Sparkles, RefreshCw } from "lucide-react";
->>>>>>> v1Recommender
+import { ChevronRight, Shield, Zap, Award, DollarSign, MessageSquare, Sparkles, MessageCircle, X, RefreshCw } from "lucide-react";
 
 const Index = () => {
   const [search, setSearch] = useState("");
