@@ -15,6 +15,7 @@ import {
 import {
   MatchResult,
   QuizResponses,
+  PriorityWeights,
 } from "@/types/behavior";
 import { Compass, Target } from "lucide-react";
 
@@ -45,20 +46,26 @@ const BehavioralMatchingPage = () => {
   const [selections, setSelections] = useState<QuizSelections | null>(null);
   const [responses, setResponses] = useState<QuizResponses | null>(null);
   const [results, setResults] = useState<MatchResult[] | null>(null);
+  const [priorities, setPriorities] = useState<PriorityWeights>({ safety: 7, performance: 5, cargo: 5 });
+  const [budget, setBudget] = useState(45000);
 
-  const handleFinish = (answers: QuizSelections) => {
-    const quizResponses = deriveQuizResponses(behavioralQuestions, answers);
+  const handleFinish = (answers: QuizSelections, sliderWeights: PriorityWeights, budgetValue: number) => {
+    const quizResponses = deriveQuizResponses(behavioralQuestions, answers, sliderWeights, budgetValue);
     const ranked = rankCarsByBehavioralFit(behavioralProfiles, quizResponses);
 
     setSelections(answers);
     setResponses(quizResponses);
     setResults(ranked);
+    setPriorities(sliderWeights);
+    setBudget(budgetValue);
   };
 
   const handleRetake = () => {
     setSelections(null);
     setResponses(null);
     setResults(null);
+    setPriorities({ safety: 7, performance: 5, cargo: 5 });
+    setBudget(45000);
   };
 
   return (
@@ -110,6 +117,12 @@ const BehavioralMatchingPage = () => {
                   <Badge variant="outline">Tech comfort: {labelMap.tech[responses.tech]}</Badge>
                   <Badge variant="outline">Ownership: {labelMap.maintenance[responses.maintenance]}</Badge>
                 </div>
+                <div className="grid gap-2 sm:grid-cols-4 pt-2 text-xs text-muted-foreground">
+                  <Card className="p-3">Safety priority: {priorities.safety}/10</Card>
+                  <Card className="p-3">Performance priority: {priorities.performance}/10</Card>
+                  <Card className="p-3">Cargo priority: {priorities.cargo}/10</Card>
+                  <Card className="p-3">Budget ceiling: ${budget.toLocaleString()}</Card>
+                </div>
               </Card>
             )}
           </header>
@@ -122,7 +135,7 @@ const BehavioralMatchingPage = () => {
 
           {results && (
             <section className="space-y-6">
-              <BehaviorMatchResults results={results} onRetake={handleRetake} />
+              <BehaviorMatchResults results={results} budget={budget} onRetake={handleRetake} />
             </section>
           )}
         </div>

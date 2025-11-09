@@ -142,34 +142,6 @@ export const behavioralQuestions: QuizQuestion[] = [
     ],
   },
   {
-    id: "tech-learning",
-    title: "How much time are you willing to spend learning new vehicle tech?",
-    category: "tech",
-    options: [
-      {
-        label: "Very little — I prefer intuitive controls",
-        value: "intuitive",
-        weights: {
-          tech: { minimal: 2 },
-        },
-      },
-      {
-        label: "Some — I’ll learn features that add value",
-        value: "moderate",
-        weights: {
-          tech: { connected: 2 },
-        },
-      },
-      {
-        label: "As much as needed — I love exploring tech",
-        value: "deep-dive",
-        weights: {
-          tech: { cuttingEdge: 2 },
-        },
-      },
-    ],
-  },
-  {
     id: "maintenance-attitude",
     title: "What kind of ownership experience do you prefer?",
     category: "maintenance",
