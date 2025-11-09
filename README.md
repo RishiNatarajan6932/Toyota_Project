@@ -74,7 +74,7 @@ If a user is close to a higher-value model, a smart pop-up explains: *"For only 
 - UX matters—small touches like sliders and personal questions dramatically improve engagement
 - The future of automotive shopping is personalization, not static filters
 
-## What's next for Toyota
+## What's next for Toyota Discover
 
 - AR/VR immersive test drives
 - Live chat with Toyota specialists keyed to quiz results
