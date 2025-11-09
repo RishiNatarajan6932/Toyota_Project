@@ -3,7 +3,7 @@ import { Car } from "@/types/car";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Gauge, Fuel, Settings, Sparkles } from "lucide-react";
+import { Gauge, Fuel, Settings, Sparkles, DollarSign } from "lucide-react";
 
 interface CarCardProps {
   car: Car;
@@ -57,6 +57,12 @@ export const CarCard = ({ car }: CarCardProps) => {
               <Button variant="ghost" size="sm" className="group-hover:text-primary">
                 <Sparkles className="w-4 h-4 mr-1" />
                 Find My Match
+              </Button>
+            </Link>
+            <Link to={`/financial/${car.id}`}>
+              <Button variant="ghost" size="sm" className="group-hover:text-primary">
+                <DollarSign className="w-4 h-4 mr-1" />
+                Financing
               </Button>
             </Link>
             <Button variant="outline" className="group-hover:bg-primary group-hover:text-primary-foreground">
