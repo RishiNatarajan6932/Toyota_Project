@@ -145,6 +145,43 @@ export const behavioralProfiles: BehavioralProfile[] = [
     maintenanceEaseScore: 7,
     cargoScore: 6,
   },
+
+  {
+    carId: "13", // Sequoia Capstone
+    msrp: 61460,
+    powerScore: 8,
+    safetyScore: 9,
+    efficiencyScore: 4,
+    comfortScore: 9,
+    techScore: 8,
+    quietnessScore: 7,
+    maintenanceEaseScore: 6,
+    cargoScore: 10,
+  },
+  {
+    carId: "14", // Land Cruiser
+    msrp: 65500,
+    powerScore: 8,
+    safetyScore: 9,
+    efficiencyScore: 5,
+    comfortScore: 8,
+    techScore: 9,
+    quietnessScore: 7,
+    maintenanceEaseScore: 6,
+    cargoScore: 9,
+  },
+  {
+    carId: "15", // GR Supra Premium
+    msrp: 55850,
+    powerScore: 10,
+    safetyScore: 8,
+    efficiencyScore: 4,
+    comfortScore: 7,
+    techScore: 9,
+    quietnessScore: 5,
+    maintenanceEaseScore: 4,
+    cargoScore: 3,
+  },
 ];
 
 export const getBehavioralProfile = (carId: string) =>

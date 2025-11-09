@@ -9,7 +9,6 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Gauge, Fuel, Shield, Sparkles } from "lucide-react";
-import { Link } from "react-router-dom";
 
 interface BehaviorMatchResultsProps {
   results: MatchResult[];
@@ -48,8 +47,12 @@ const buildUpsellInfo = (currentId: string, budget: number): UpsellInfo | undefi
     .filter((profile) => profile.msrp > current.msrp)
     .sort((a, b) => a.msrp - b.msrp);
 
-  const targetMsrp = Math.max(current.msrp * 1.05, Math.min(budget * 1.15, current.msrp * 1.25));
-  const upgrade = candidates.find((profile) => profile.msrp <= targetMsrp) ?? candidates[candidates.length - 1];
+  const desiredMin = Math.max(budget * 0.9, current.msrp * 1.05);
+  const overBudgetCandidates = candidates.filter((profile) => profile.msrp > budget);
+  const targeted = overBudgetCandidates.length > 0
+    ? overBudgetCandidates
+    : candidates.filter((profile) => profile.msrp >= desiredMin);
+  const upgrade = targeted[0] ?? candidates[candidates.length - 1] ?? current;
   if (!upgrade) return undefined;
 
   const priceDelta = upgrade.msrp - current.msrp;
@@ -63,6 +66,13 @@ const buildUpsellInfo = (currentId: string, budget: number): UpsellInfo | undefi
       highlights.push(`${label} +${upgradeValue - currentValue}`);
     }
   });
+
+  if (upgrade.msrp > budget) {
+    const overPercent = Math.round(((upgrade.msrp - budget) / budget) * 100);
+    highlights.push(`Just ${overPercent}% above your budget unlocks premium upgrades`);
+  } else {
+    highlights.push("Fits within your stated budget");
+  }
 
   if (highlights.length === 0) {
     highlights.push("More premium features and materials");
@@ -84,13 +94,22 @@ export const BehaviorMatchResults = ({ results, onRetake, budget }: BehaviorMatc
 
   const [upsellOpen, setUpsellOpen] = useState(false);
   const [activeUpsell, setActiveUpsell] = useState<UpsellInfo | undefined>(undefined);
+  const [pendingAction, setPendingAction] = useState<{ carId: string; route: "inventory" | "build" } | null>(null);
 
-  const handleUpsellTrigger = (carId: string) => {
+  const handleUpsellTrigger = (carId: string, route: "inventory" | "build") => {
     const suggestion = buildUpsellInfo(carId, budget);
     if (suggestion) {
+      setPendingAction({ carId, route });
       setActiveUpsell(suggestion);
       setUpsellOpen(true);
+    } else {
+      setPendingAction(null);
+      handlePrimaryAction(carId, route);
     }
+  };
+
+  const handlePrimaryAction = (carId: string, route: "inventory" | "build") => {
+    window.location.href = `/${route}/${carId}`;
   };
 
   const budgetStatus = (price: number) => {
@@ -113,15 +132,15 @@ export const BehaviorMatchResults = ({ results, onRetake, budget }: BehaviorMatc
       <Button
         variant="ghost"
         size={small ? "sm" : undefined}
-        onClick={() => handleUpsellTrigger(carId)}
         type="button"
+        onClick={() => handleUpsellTrigger(carId, "inventory")}
       >
         Explore inventory
       </Button>
       <Button
         size={small ? "sm" : undefined}
-        onClick={() => handleUpsellTrigger(carId)}
         type="button"
+        onClick={() => handleUpsellTrigger(carId, "build")}
       >
         Build & price
       </Button>
@@ -223,10 +242,50 @@ export const BehaviorMatchResults = ({ results, onRetake, budget }: BehaviorMatc
         </div>
       </div>
 
-      <Dialog open={upsellOpen} onOpenChange={setUpsellOpen}>
+      <Dialog
+        open={upsellOpen}
+        onOpenChange={(open) => {
+          if (!open) {
+            if (pendingAction) {
+              const { carId, route } = pendingAction;
+              setPendingAction(null);
+              setActiveUpsell(undefined);
+              handlePrimaryAction(carId, route);
+            } else {
+              setActiveUpsell(undefined);
+            }
+            setUpsellOpen(false);
+          } else {
+            setUpsellOpen(true);
+          }
+        }}
+      >
         <DialogContent>
           {activeUpsell ? (
-            <UpsellContent upsell={activeUpsell} onClose={() => setUpsellOpen(false)} />
+            <UpsellContent
+              upsell={activeUpsell}
+              onAccept={() => {
+                if (activeUpsell) {
+                  const route = pendingAction?.route ?? "build";
+                  setPendingAction(null);
+                  setUpsellOpen(false);
+                  setActiveUpsell(undefined);
+                  handlePrimaryAction(activeUpsell.upgradeCarId, route);
+                }
+              }}
+              onReject={() => {
+                if (pendingAction) {
+                  const { carId, route } = pendingAction;
+                  setPendingAction(null);
+                  setUpsellOpen(false);
+                  setActiveUpsell(undefined);
+                  handlePrimaryAction(carId, route);
+                } else {
+                  setUpsellOpen(false);
+                  setActiveUpsell(undefined);
+                }
+              }}
+            />
           ) : null}
         </DialogContent>
       </Dialog>
@@ -236,10 +295,11 @@ export const BehaviorMatchResults = ({ results, onRetake, budget }: BehaviorMatc
 
 interface UpsellContentProps {
   upsell: UpsellInfo;
-  onClose: () => void;
+  onAccept: () => void;
+  onReject: () => void;
 }
 
-const UpsellContent = ({ upsell, onClose }: UpsellContentProps) => {
+const UpsellContent = ({ upsell, onAccept, onReject }: UpsellContentProps) => {
   const carsById = useMemo(() => new Map(cars.map((car) => [car.id, car])), []);
   const profilesById = useMemo(() => new Map(behavioralProfiles.map((profile) => [profile.carId, profile])), []);
 
@@ -275,14 +335,19 @@ const UpsellContent = ({ upsell, onClose }: UpsellContentProps) => {
       </Card>
 
       <DialogFooter className="flex flex-col sm:flex-row sm:justify-between sm:space-x-2">
-        <Button variant="ghost" onClick={onClose} className="w-full sm:w-auto">
+        <Button
+          variant="ghost"
+          onClick={onReject}
+          className="w-full sm:w-auto"
+        >
           Stick with my current match
         </Button>
-        <Link to="/" className="w-full sm:w-auto">
-          <Button className="w-full" onClick={onClose}>
-            Show me this upgraded build
-          </Button>
-        </Link>
+        <Button
+          className="w-full sm:w-auto"
+          onClick={onAccept}
+        >
+          Show me this upgraded build
+        </Button>
       </DialogFooter>
     </div>
   );

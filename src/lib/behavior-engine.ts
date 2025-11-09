@@ -286,12 +286,17 @@ const applyPriorityWeights = (
 
 const budgetAdjustment = (msrp: number, budget: number): number => {
   if (budget <= 0) return 1;
+
+  const ratio = msrp / budget;
+
   if (msrp <= budget) {
-    const savingsRatio = (budget - msrp) / budget;
-    return 1 + Math.min(0.2, savingsRatio * 0.5);
+    const proximityBoost = Math.max(0.8, 1.3 - Math.abs(1 - ratio) * 0.6);
+    const undershootPenalty = ratio < 0.75 ? (0.75 - ratio) * 0.5 : 0;
+    return Math.max(0.75, proximityBoost - undershootPenalty);
   }
-  const overRatio = (msrp - budget) / budget;
-  return Math.max(0.6, 1 - Math.min(0.4, overRatio * 0.6));
+
+  const overRatio = ratio - 1;
+  return Math.max(0.6, 1 - Math.min(0.45, overRatio * 0.7));
 };
 
 export const rankCarsByBehavioralFit = (
