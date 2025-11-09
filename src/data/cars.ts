@@ -8,7 +8,7 @@ export const cars: Car[] = [
     year: 2024,
     price: 28400,
     type: "sedan",
-    image: "/placeholder.svg",
+    image: "/cars/camry.jpg",
     specs: {
       engine: "2.5L 4-Cylinder",
       horsepower: 203,
@@ -24,7 +24,7 @@ export const cars: Car[] = [
     year: 2024,
     price: 29575,
     type: "suv",
-    image: "/placeholder.svg",
+    image: "/cars/rav4.avif",
     specs: {
       engine: "2.5L 4-Cylinder",
       horsepower: 203,
@@ -39,7 +39,7 @@ export const cars: Car[] = [
     year: 2024,
     price: 22050,
     type: "sedan",
-    image: "/placeholder.svg",
+    image: "/cars/corolla.webp",
     specs: {
       engine: "2.0L 4-Cylinder",
       horsepower: 169,
@@ -54,7 +54,7 @@ export const cars: Car[] = [
     year: 2024,
     price: 38520,
     type: "suv",
-    image: "/placeholder.svg",
+    image: "/cars/toyotahighlander.avif",
     specs: {
       engine: "2.4L Turbo 4-Cylinder",
       horsepower: 265,
@@ -69,7 +69,7 @@ export const cars: Car[] = [
     year: 2024,
     price: 28545,
     type: "electric",
-    image: "/placeholder.svg",
+    image: "/cars/prius.jpg",
     specs: {
       engine: "2.0L Hybrid",
       horsepower: 196,
@@ -84,7 +84,7 @@ export const cars: Car[] = [
     year: 2024,
     price: 30750,
     type: "suv",
-    image: "/placeholder.svg",
+    image: "/cars/tacoma.avif",
     specs: {
       engine: "2.4L Turbo 4-Cylinder",
       horsepower: 278,
@@ -99,7 +99,7 @@ export const cars: Car[] = [
     year: 2024,
     price: 41515,
     type: "suv",
-    image: "/placeholder.svg",
+    image: "/cars/4runner.avif",
     specs: {
       engine: "4.0L V6",
       horsepower: 270,
@@ -114,7 +114,7 @@ export const cars: Car[] = [
     year: 2024,
     price: 46440,
     type: "sports",
-    image: "/placeholder.svg",
+    image: "/cars/gr supra.avif",
     specs: {
       engine: "3.0L Turbo I6",
       horsepower: 382,
@@ -129,7 +129,7 @@ export const cars: Car[] = [
     year: 2024,
     price: 40790,
     type: "suv",
-    image: "/placeholder.svg",
+    image: "/cars/tundra.jpg",
     specs: {
       engine: "3.5L Twin-Turbo V6",
       horsepower: 389,
@@ -144,7 +144,7 @@ export const cars: Car[] = [
     year: 2024,
     price: 42000,
     type: "electric",
-    image: "/placeholder.svg",
+    image: "/cars/bz4x.avif",
     specs: {
       engine: "Dual-Motor Electric",
       horsepower: 214,
@@ -159,7 +159,7 @@ export const cars: Car[] = [
     year: 2024,
     price: 37155,
     type: "suv",
-    image: "/placeholder.svg",
+    image: "/cars/sienna.jpg",
     specs: {
       engine: "2.5L Hybrid 4-Cylinder",
       horsepower: 245,
@@ -174,7 +174,7 @@ export const cars: Car[] = [
     year: 2024,
     price: 41045,
     type: "sedan",
-    image: "/placeholder.svg",
+    image: "/cars/crown.jpg",
     specs: {
       engine: "2.4L Turbo Hybrid 4-Cylinder",
       horsepower: 340,
